@@ -1,11 +1,24 @@
-<!Doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <title>Patrón mvc</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-    <h2>Bienvenido a : {{ nombre_sitio }}.!</h2>
-  </body>
-</html>
+{% extends "vistaprevia/plantilla.html" %}
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Bienvenido a : {{contenido.nombre_sitio}}.!</h1>
+    </div>
+  </div>
+  <main class="container">
+    <div class="row">
+      <section class="col-12" style="background-color:#25b89a; color: #fff; ">
+      {% if para_minorista.incremento == '10' %}
+        <h2>El incremento para minoristas es del:
+          {{para_minorista.incremento}}%.!</h2>
+      {% elif para_minorista.incremento == '20' %}
+        <h2>El incremento para minoristas es del:
+          {{para_minorista.incremento}}%.!</h2>
+      {% else %}
+        <h2>El incremento para minoristas es del:
+          {{para_minorista.incremento}}%.!</h2>
+      {% endif%}
+      </section>
+    </div>
+  </main>
+{% endblock %}
