@@ -1,4 +1,6 @@
 {% extends "vistaprevia/plantilla.html" %}
+{% load static %}
+{% load  i18n %}
 {% block content %}
   <div class="container">
     <div class="jumbotron">
@@ -18,6 +20,9 @@
         <h2>El incremento para minoristas es del:
           {{para_minorista.incremento}}%.!</h2>
       {% endif%}
+      {% block scripts %}
+      <script type="text/javascript">$('a').click(function(){alert("Estas por ir a otra página");});</script>
+      {% endblock %}
       </section>
     </div>
   </main>
