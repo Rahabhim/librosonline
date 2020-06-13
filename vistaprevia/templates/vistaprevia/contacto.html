@@ -14,6 +14,7 @@
                 <h2>Contacto</h2>
                 <hr/>
                 <form id="contact" action="" method="post" class="col-xs-12">
+                  {% csrf_token %}
                     <div class="col-xs-12">
                         <label id="label_nombre_completo" for="id_nombre_completo">NOMBRE Y APELLIDO</label>
                         <input type="text" name="nombre">
