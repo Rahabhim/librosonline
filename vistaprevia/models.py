@@ -2,6 +2,14 @@ from django.db import models
 from django.utils.html import format_html
 
 # Create your models here.
+
+class Categoria(models.Model):
+    nombre = models.CharField(max_length=100, db_index=True)
+    slug = models.SlugField(max_length=100, db_index=True)
+
+    def __str__(self):
+        return '%s' % self.nombre
+
 class Producto(models.Model):
     Borrador = 'Borrador'
     Publicado = 'Publicado'
@@ -16,6 +24,7 @@ class Producto(models.Model):
     estado = models.CharField(max_length=10, choices=APROBACION_PRODUCTO, default='Borrador')
     fecha_publicacion = models.DateTimeField('Fecha de publicación')
     ruta_imagen = models.FileField(upload_to='fotos/%Y/%m/%d', default='defecto/defecto.png', blank=True, null=True)
+    categoria = models.ManyToManyField(Categoria)
 
     def tipo_de_producto(self):
         if self.estado == 'Retirado':
