@@ -1,0 +1,31 @@
+{% extends "vistaprevia/plantilla.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container">
+<div class="jumbotron">
+<h1>Página de contacto.</h1>
+</div>
+</div>
+<main class="container-fluid">
+<div id="formulario_contacto" class="row">
+<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+<h2>Contacto</h2>
+<hr/>
+<form class="col-xs-12" action="{% url 'cargar' %}"
+method="post" enctype="multipart/form-data">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit">
+</form>
+</div>
+</div>
+</main>
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'vistaprevia/js/jquery-ui.js' %}"></script>
+<script>
+$( "#id_fecha_publicacion" ).datepicker({
+inline: true
+});
+</script>
+{% endblock %}
